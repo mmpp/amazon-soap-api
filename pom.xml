@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.mmpp.amazon</groupId>
+  <version>1.0.0</version>
+  <artifactId>soap</artifactId>
+  <name>amazon soap wsdl</name>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.axis2</groupId>
+                <artifactId>axis2-wsdl2code-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsdl2code</goal>
+                        </goals>
+                    </execution>
+                </executions>
+		<configuration>
+			<packageName>org.mmpp.amazon.soap</packageName>
+                	<wsdlFile>src/main/wsdl/AWSECommerceService.wsdl</wsdlFile>
+                	<databindingName>xmlbeans</databindingName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+  <dependencies>
+    <dependency>
+          <groupId>org.apache.axis2</groupId>
+          <artifactId>axis2</artifactId>
+          <version>1.4</version>
+    </dependency>
+  </dependencies>
+</project>
